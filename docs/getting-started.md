@@ -24,10 +24,6 @@ Authorization: Bearer YOUR_API_KEY
 
 You can obtain an API key from your [dashboard](https://dashboard.acme.io/api-keys).
 
-## Rate Limiting
-
-All endpoints are rate limited to **100 requests per minute** per API key. When exceeded, you'll receive a `429 Too Many Requests` response.
-
 ## Endpoints
 
 ### Users
@@ -36,11 +32,9 @@ Manage user accounts in your application.
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/users` | List all users (paginated) |
+| GET | `/users` | List all users |
 | POST | `/users` | Create a new user |
 | GET | `/users/:id` | Get a user by ID |
-| PATCH | `/users/:id` | Update a user |
-| DELETE | `/users/:id` | Delete a user |
 
 #### Example: List Users
 
@@ -58,33 +52,11 @@ Response:
       "id": "usr_123",
       "email": "john@example.com",
       "name": "John Doe",
-      "role": "admin",
-      "created_at": "2024-01-15T10:30:00Z",
-      "updated_at": "2024-01-15T10:30:00Z"
+      "created_at": "2024-01-15T10:30:00Z"
     }
   ],
-  "has_more": false,
-  "total": 1
+  "has_more": false
 }
-```
-
-#### Example: Update User
-
-```bash
-curl -X PATCH https://api.acme.io/v1/users/usr_123 \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "John Updated",
-    "role": "member"
-  }'
-```
-
-#### Example: Delete User
-
-```bash
-curl -X DELETE https://api.acme.io/v1/users/usr_123 \
-  -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
 ### Products
@@ -96,8 +68,17 @@ Manage your product catalog.
 | GET | `/products` | List all products |
 | POST | `/products` | Create a new product |
 | GET | `/products/:id` | Get a product by ID |
+| PATCH | `/products/:id` | Update a product |
+| DELETE | `/products/:id` | Archive a product |
+| POST | `/products/:id/prices` | Add a price to product |
 
-#### Example: Create Product
+#### Product Types
+
+Products can be one of these types:
+- `one_time` - Single purchase products
+- `recurring` - Subscription products with billing intervals
+
+#### Example: Create Subscription Product
 
 ```bash
 curl -X POST https://api.acme.io/v1/products \
@@ -105,31 +86,48 @@ curl -X POST https://api.acme.io/v1/products \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Pro Plan",
-    "price": 99.00,
-    "currency": "USD"
+    "type": "recurring",
+    "description": "Full access to all features",
+    "metadata": {
+      "features": ["unlimited_users", "priority_support"]
+    }
   }'
 ```
 
-## Error Handling
+#### Example: Add Price to Product
 
-All errors follow a consistent format:
-
-```json
-{
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "Invalid email format",
-    "field": "email"
-  }
-}
+```bash
+curl -X POST https://api.acme.io/v1/products/prod_123/prices \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "amount": 9900,
+    "currency": "usd",
+    "interval": "month"
+  }'
 ```
 
-| Status | Code | Description |
-|--------|------|-------------|
-| 400 | VALIDATION_ERROR | Invalid request body |
-| 401 | UNAUTHORIZED | Missing or invalid API key |
-| 404 | NOT_FOUND | Resource not found |
-| 429 | RATE_LIMITED | Too many requests |
+### Webhooks
+
+Receive real-time notifications about events in your account.
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/webhooks` | List webhook endpoints |
+| POST | `/webhooks` | Create a webhook endpoint |
+| DELETE | `/webhooks/:id` | Delete a webhook endpoint |
+
+#### Example: Create Webhook
+
+```bash
+curl -X POST https://api.acme.io/v1/webhooks \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://your-app.com/webhooks",
+    "events": ["product.created", "product.updated"]
+  }'
+```
 
 ## Next Steps
 
