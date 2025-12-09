@@ -413,5 +413,5 @@ def fetch_and_validate_users():
 ## Next Steps
 
 - [Context](/concepts/context) - Passing configuration to tasks
-- [Policies](/concepts/policies) - Configure retry, cache, and timeout behaviors
-- [Decorators](/concepts/decorators) - Advanced task modification
+- [Pipelines](/concepts/pipelines) - Learn about pipeline configuration
+- [Observability](/guides/observability) - Monitor your task execution

@@ -111,7 +111,7 @@ result = pipeline.run()
 print(result)  # ✓ Pipeline 'hello-world' completed in 0.01s
 ```
 
-Ready to build something real? Check out the [Getting Started Guide](/getting-started/installation).
+Ready to build something real? Check out the [Getting Started Guide](/getting-started).
 
 ## Architecture Overview
 

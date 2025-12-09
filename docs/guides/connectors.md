@@ -417,4 +417,4 @@ source = PostgresSource(
 ## Next Steps
 
 - [Observability Guide](/guides/observability) - Monitor connector performance
-- [API Reference](/api/connectors) - Full connector API documentation
+- [RAG Pipeline Example](/examples/rag-pipeline) - See connectors in action

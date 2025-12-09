@@ -313,4 +313,4 @@ pipeline = Pipeline("production-pipeline", tracer=tracer)
 
 - [Tasks](/concepts/tasks) - Deep dive into task configuration
 - [Context](/concepts/context) - Managing configuration and state
-- [Policies](/concepts/policies) - Retry, caching, and timeouts
+- [Connectors](/guides/connectors) - Integrate with databases and services

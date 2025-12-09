@@ -347,6 +347,6 @@ View pipeline execution in the Mosayc Dashboard:
 
 ## Next Steps
 
-- [ETL Pipeline Example](/examples/etl-pipeline) - Data warehouse ETL
-- [Streaming Pipeline](/examples/streaming) - Real-time processing
-- [API Reference](/api/pipelines) - Full API documentation
+- [Connectors Guide](/guides/connectors) - Learn about available connectors
+- [Observability Guide](/guides/observability) - Monitor your pipelines
+- [Pipeline API Reference](/api/pipeline-reference) - Full API documentation

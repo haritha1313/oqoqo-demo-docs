@@ -131,5 +131,5 @@ curl -X POST https://api.acme.io/v1/webhooks \
 
 ## Next Steps
 
-- Read the [Architecture Overview](./architecture) to understand our system
-- Follow the [How-To Guide](./how-to-guide) for step-by-step tutorials
+- Explore the [Concepts](/concepts/pipelines) to understand core components
+- Check out the [RAG Pipeline Example](/examples/rag-pipeline) for a complete walkthrough

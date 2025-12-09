@@ -77,10 +77,6 @@ const config: Config = {
               label: 'Getting Started',
               to: '/getting-started',
             },
-            {
-              label: 'Architecture',
-              to: '/architecture',
-            },
           ],
         },
       ],

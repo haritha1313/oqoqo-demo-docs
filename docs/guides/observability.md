@@ -410,5 +410,5 @@ Create dashboards for:
 
 ## Next Steps
 
-- [API Reference](/api/observability) - Full observability API
-- [Examples](/examples/monitoring) - Monitoring setup examples
+- [Connectors Guide](/guides/connectors) - Integrate with databases and services
+- [RAG Pipeline Example](/examples/rag-pipeline) - See observability in action

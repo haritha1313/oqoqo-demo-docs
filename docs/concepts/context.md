@@ -235,5 +235,5 @@ Required secrets:
 
 ## Next Steps
 
-- [Policies](/concepts/policies) - Configure retry and caching
 - [Observability](/guides/observability) - Monitoring and tracing
+- [Pipelines](/concepts/pipelines) - Learn about pipeline configuration
