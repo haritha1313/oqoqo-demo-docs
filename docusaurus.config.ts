@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Acme API Docs',
-  tagline: 'Build powerful integrations with the Acme API',
+  title: 'Mosayc Docs',
+  tagline: 'Build composable AI-powered data pipelines with unprecedented observability',
   favicon: 'img/favicon.ico',
 
   future: {
@@ -48,9 +48,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Acme API',
+      title: 'Mosayc',
       logo: {
-        alt: 'Acme Logo',
+        alt: 'Mosayc Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -80,7 +80,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Acme, Inc.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Mosayc`,
     },
     prism: {
       theme: prismThemes.github,
