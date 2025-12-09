@@ -35,6 +35,8 @@ Manage user accounts in your application.
 | GET | `/users` | List all users |
 | POST | `/users` | Create a new user |
 | GET | `/users/:id` | Get a user by ID |
+| PATCH | `/users/:id` | Update a user |
+| DELETE | `/users/:id` | Delete a user |
 
 #### Example: List Users
 
