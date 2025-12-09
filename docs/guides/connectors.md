@@ -142,6 +142,37 @@ results = source.query(
 )
 ```
 
+### Elasticsearch
+
+```python
+from mosayc.connectors import ElasticsearchSource, ElasticsearchSink
+
+source = ElasticsearchSource(
+    hosts=["http://localhost:9200"],
+    index="documents",
+    api_key="your-api-key",  # Optional
+)
+
+# Search with query DSL
+results = source.search({
+    "query": {
+        "match": {"content": "machine learning"}
+    },
+    "size": 10,
+})
+
+# Bulk index documents
+sink = ElasticsearchSink(
+    hosts=["http://localhost:9200"],
+    index="processed-documents",
+)
+
+sink.write([
+    {"_id": "doc-1", "title": "Hello", "content": "World"},
+    {"_id": "doc-2", "title": "Foo", "content": "Bar"},
+])
+```
+
 ## LLM Provider Connectors
 
 ### OpenAI
