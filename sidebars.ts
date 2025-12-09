@@ -3,14 +3,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   docsSidebar: [
     'index',
-    {
-      type: 'category',
-      label: 'Getting Started',
-      items: [
-        'getting-started/installation',
-        'getting-started/quickstart',
-      ],
-    },
+    'getting-started',
     {
       type: 'category',
       label: 'Concepts',
