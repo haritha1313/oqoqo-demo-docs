@@ -101,6 +101,22 @@ def tagged_task():
     pass
 ```
 
+### Priority
+
+Control task execution order when multiple tasks are ready:
+
+```python
+@pipeline.task(priority=10)  # Higher priority, runs first
+def critical_task():
+    pass
+
+@pipeline.task(priority=1)   # Lower priority, runs later
+def background_task():
+    pass
+```
+
+Priority values range from 1 (lowest) to 10 (highest). Default is 5.
+
 ## Task Decorators
 
 Mosayc provides decorators to modify task behavior without changing the core logic.
