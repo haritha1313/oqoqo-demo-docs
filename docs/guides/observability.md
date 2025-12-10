@@ -16,7 +16,7 @@ from mosayc.observability import MosaycTracer
 
 # Create tracer
 tracer = MosaycTracer(
-    endpoint="https://telemetry.mosayc.dev",
+    endpoint="https://telemetry.mosayc.io",  # Updated endpoint
     project_id="my-project",
     api_key="your-api-key",
     sample_rate=1.0,  # Trace 100% of requests
