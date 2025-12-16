@@ -297,6 +297,36 @@ for r in results:
     print(f"  {r['content'][:200]}...")
 ```
 
+### Hybrid Search
+
+Combine keyword and vector search for better results:
+
+```python
+def hybrid_search(query: str, top_k: int = 5, alpha: float = 0.5):
+    """
+    Hybrid search combining sparse (keyword) and dense (vector) retrieval.
+
+    Args:
+        query: Search query text
+        top_k: Number of results to return
+        alpha: Balance between keyword (0) and vector (1) search
+    """
+    query_embedding = embedder.embed([query]).embeddings[0]
+
+    results = source.hybrid_query(
+        vector=query_embedding,
+        sparse_vector=embedder.sparse_embed([query]).vectors[0],
+        top_k=top_k,
+        alpha=alpha,
+        include_metadata=True,
+    )
+
+    return results
+
+# Alpha=0.7 favors semantic similarity
+results = hybrid_search("authentication setup", alpha=0.7)
+```
+
 ## Using the Pre-built RAGPipeline
 
 Mosayc also provides a pre-built RAG pipeline:
