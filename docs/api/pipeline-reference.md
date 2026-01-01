@@ -43,7 +43,7 @@ Pipeline(
 | `description` | `str` | `None` | Human-readable description |
 | `version` | `str` | `"1.0.0"` | Semantic version string |
 | `execution_mode` | `str` | `"sequential"` | Task execution mode: `sequential`, `parallel`, `async` |
-| `max_parallel_tasks` | `int` | `4` | Maximum concurrent tasks in parallel mode |
+| `max_parallel_tasks` | `int` | `8` | Maximum concurrent tasks in parallel mode |
 | `timeout_seconds` | `float` | `None` | Global execution timeout |
 | `fail_fast` | `bool` | `True` | Stop on first task failure |
 | `enable_caching` | `bool` | `True` | Enable task result caching |
