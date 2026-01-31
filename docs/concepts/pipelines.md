@@ -42,6 +42,18 @@ pipeline = Pipeline(
 | `sequential` | Tasks run one at a time in dependency order |
 | `parallel` | Independent tasks run concurrently |
 | `async` | Full async execution for I/O-bound workloads |
+| `batch` | Process records in configurable batch sizes |
+
+#### Batch Mode Configuration
+
+```python
+pipeline = Pipeline(
+    "batch-processor",
+    execution_mode="batch",
+    batch_size=1000,           # Records per batch
+    batch_timeout=30.0,        # Max seconds to fill a batch
+)
+```
 
 ## Defining Tasks
 
