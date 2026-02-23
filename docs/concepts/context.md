@@ -9,11 +9,11 @@ Context objects carry configuration, secrets, and state through pipeline executi
 ## Creating a Context
 
 ```python
-from mosayc import Context
+from mosayc import Context, LogConfig
 
 ctx = Context(
     env="production",
-    log_level="info",
+    log_config=LogConfig(level="info", format="json"),
     enable_metrics=True,
     enable_tracing=True,
     project_id="my-project",
